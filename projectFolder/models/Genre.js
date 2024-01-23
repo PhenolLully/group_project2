@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Movie = require("./Movie");
+const User = require("./User");
 
 const Genre = sequelize.define('Genre', {
   id: {
@@ -8,18 +10,14 @@ const Genre = sequelize.define('Genre', {
       primaryKey: true,
       autoIncrement: true,
     },
-  movieName: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   genre: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  yearReleased: {
-    type: DataTypes.NUMBER,
-      allowNull: false,
-  }
+
 });
+
+Genre.belongsToMany(User, {through: "UserGenre"});
+Genre.hasMany(Movie);
 
 module.exports = Genre;
