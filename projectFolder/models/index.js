@@ -1,5 +1,5 @@
 const User = require('./User');
 const Movie = require("./Movie");
-const Genre = require("./Category")
+const Genre = require("./Genre")
 
-module.exports = { User, Movie };
+module.exports = { User, Movie, Genre };
