@@ -17,7 +17,4 @@ const Genre = sequelize.define('Genre', {
 
 });
 
-Genre.belongsToMany(User, {through: "UserGenre"});
-Genre.hasMany(Movie);
-
 module.exports = Genre;
