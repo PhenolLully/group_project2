@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
+const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcryptjs');
 const sequelize = require('../config/connection');
-const Genre = require("..models/Genre");
+const Genre = require("../models/Genre");
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -9,7 +9,7 @@ class User extends Model {
   }
 }
 
-const User = sequelize.define("User", {
+const userModel = sequelize.define("User", {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -50,6 +50,5 @@ const User = sequelize.define("User", {
   modelName: 'user',
 });
 
-User.belongsToMany(Genre, {through: "UserGenre" });
 
-module.exports = User;
+module.exports = userModel;

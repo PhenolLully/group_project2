@@ -16,7 +16,7 @@ const Movie = sequelize.define('Movie', {
 
 });
 
-Movie.belongsTo(Genre);
+
 
 module.exports = Movie;
 
