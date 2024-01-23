@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Genre = require("./Genre");
 
 const Movie = sequelize.define('Movie', {
   id: {
@@ -12,15 +13,10 @@ const Movie = sequelize.define('Movie', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  genre: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  yearReleased: {
-    type: DataTypes.NUMBER,
-      allowNull: false,
-  }
+
 });
+
+Movie.belongsTo(Genre);
 
 module.exports = Movie;
 
