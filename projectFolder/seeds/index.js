@@ -8,6 +8,8 @@ const seedAll = async () => {
   await seedGenre(); // Seed genres first
   await seedMovies();
 
+  await seedGenre();
+
   process.exit(0);
 };
 
