@@ -1,24 +1,24 @@
 const router = require('express').Router();
-const { Gallery, Painting } = require('../models');
+const { Genre, Movie } = require('../models');
 
-// GET all galleries for homepage
+// GET all genres for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
+    const dbGenreData = await Genre.findAll({
       include: [
         {
-          model: Painting,
-          attributes: ['filename', 'description'],
+          model: Movie,
+          attributes: ['Action', 'Thriller', "Horror", "Comedy", "Romance"],
         },
       ],
     });
 
-    const galleries = dbGalleryData.map((gallery) =>
-      gallery.get({ plain: true })
+    const genres = dbGenreData.map((genre) =>
+      genre.get({ plain: true })
     );
 
     res.render('homepage', {
-      galleries,
+      genres,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -27,31 +27,30 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET one gallery
-router.get('/gallery/:id', async (req, res) => {
+// GET one genre
+router.get('/genre/:id', async (req, res) => {
   // If the user is not logged in, redirect the user to the login page
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them to view the gallery
+    // If the user is logged in, allow them to view the genre
     try {
-      const dbGalleryData = await Gallery.findByPk(req.params.id, {
+      const dbGenreData = await Genre.findByPk(req.params.id, {
         include: [
           {
-            model: Painting,
+            model: Movie,
             attributes: [
-              'id',
-              'title',
-              'artist',
-              'exhibition_date',
-              'filename',
-              'description',
+              'Action',
+              'Thriller',
+              'Horror',
+              'Comdedy',
+              "Romance"
             ],
           },
         ],
       });
-      const gallery = dbGalleryData.get({ plain: true });
-      res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
+      const genre = dbGenreData.get({ plain: true });
+      res.render('genre', { genre, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -59,19 +58,19 @@ router.get('/gallery/:id', async (req, res) => {
   }
 });
 
-// GET one painting
-router.get('/painting/:id', async (req, res) => {
+// GET one movie
+router.get('/movie/:id', async (req, res) => {
   // If the user is not logged in, redirect the user to the login page
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them to view the painting
+    // If the user is logged in, allow them to view the movie
     try {
-      const dbPaintingData = await Painting.findByPk(req.params.id);
+      const dbMovieData = await Movie.findByPk(req.params.id);
 
-      const painting = dbPaintingData.get({ plain: true });
+      const movie = dbMovieData.get({ plain: true });
 
-      res.render('painting', { painting, loggedIn: req.session.loggedIn });
+      res.render('movie', { movie, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
