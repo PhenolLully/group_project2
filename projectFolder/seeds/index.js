@@ -7,6 +7,8 @@ const seedAll = async () => {
 
   await seedMovies();
 
+  await seedGenre();
+
   process.exit(0);
 };
 
