@@ -1,4 +1,4 @@
-const { Genre } = require('../models');
+const {Genre} = require('../models');
 
 const genreData = [
 {genre: "Action", id: 1 },
@@ -8,6 +8,7 @@ const genreData = [
 {genre: "Romance", id: 5 },
 
 ];
+// just have the id
 
 const seedGenre = () => Genre.bulkCreate(genreData);
 

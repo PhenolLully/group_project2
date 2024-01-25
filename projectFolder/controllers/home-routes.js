@@ -5,12 +5,12 @@ const { Genre, Movie } = require('../models');
 router.get('/', async (req, res) => {
   try {
     const dbGenreData = await Genre.findAll({
-      include: [
-        {
-          model: Movie,
-          attributes: ['Action', 'Thriller', "Horror", "Comedy", "Romance"],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: Movie,
+      //     attributes: ['Action', 'Thriller', "Horror", "Comedy", "Romance"],
+      //   },
+      // ],
     });
 
     const genres = dbGenreData.map((genre) =>
