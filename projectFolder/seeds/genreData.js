@@ -1,4 +1,4 @@
-const {Genre} = require('../models');
+const { Genre } = require('../models');
 
 const genreData = [
 {genre: "Action", id: 1 },
