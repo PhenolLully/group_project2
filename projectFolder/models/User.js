@@ -35,6 +35,13 @@ User.init(
         len: [6],
       },
     },
+    movie_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'movie',
+        key: 'id',
+      },
+    },
   },
   {
     hooks: {
