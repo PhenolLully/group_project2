@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcryptjs');
 const sequelize = require('../config/connection');
-const Genre = require('../models/Genre');
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -9,8 +8,7 @@ class User extends Model {
   }
 }
 
-const userModel = sequelize.define(
-  'User',
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -53,4 +51,4 @@ const userModel = sequelize.define(
   }
 );
 
-module.exports = userModel;
+module.exports = User;
