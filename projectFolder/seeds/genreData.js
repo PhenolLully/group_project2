@@ -1,11 +1,11 @@
 const {Genre} = require('../models');
 
 const genreData = [
-{genre: "Action" },
-{genre: "Thriller" },
-{genre: "Horror" },
-{genre: "Comedy" },
-{genre: "Romance" },
+{genre: "Action", id: 1 },
+{genre: "Thriller", id: 2 },
+{genre: "Horror", id: 3 },
+{genre: "Comedy", id: 4 },
+{genre: "Romance", id: 5 },
 
 ];
 
