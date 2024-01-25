@@ -9,6 +9,21 @@ const movieData = {
     Romance: ["The Notebook", "Romeo & Juliet","Love Jones","Pretty Woman","500 Days of Summer"]
 }
 
+const actionGenreId = genreData.find(genre => genre.genre === "Action").id;
+console.log("Action genre ID:", actionGenreId);
+
+const thrillerGenreId = genreData.find(genre => genre.genre === "Thriller").id;
+console.log("Thriller genre ID:", thrillerGenreId);
+
+const comedyGenreId = genreData.find(genre => genre.genre === "Comedy").id;
+console.log("Comedy genre ID:", comedyGenreId);
+
+const horrorGenreId = genreData.find(genre => genre.genre === "Horror").id;
+console.log("Horror genre ID:", horrorGenreId);
+
+const romanceGenreId = genreData.find(genre => genre.genre === "Romance").id;
+console.log("Romance genre ID:", romanceGenreId);
+
 const seedMovies = async () => Movie.bulkCreate(movieData);{
     for (const [genre, movies] of Object.entries(genreData)) {
       for (const movieName of movies) {

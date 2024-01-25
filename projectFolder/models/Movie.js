@@ -16,6 +16,20 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    genre_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'genre',
+        key: 'id',
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    }
   },
   {
     sequelize,
@@ -24,6 +38,9 @@ Movie.init(
     underscored: true,
     modelName: 'movie',
   }
+
 );
 
 module.exports = Movie;
+
+
