@@ -1,18 +1,25 @@
 const path = require('path');
+
 const express = require('express');
+
 const session = require('express-session');
+
 const exphbs = require('express-handlebars');
+
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const routes = require('./controllers');
+
 const sequelize = require('./config/connection');
+
 const helpers = require('./utils/helpers');
 
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.SESSION_SECRET || 'Super secret secret', // Use environment variable
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -23,13 +30,14 @@ const sess = {
 
 app.use(session(sess));
 
-const hbs = exphbs.create({ helpers });
+app.use(express.json()); // Use built-in express.json() for JSON parsing
 
-app.engine('handlebars', hbs.engine);
+app.use(express.urlencoded({ extended: true })); // Use built-in express.urlencoded() for URL-encoded data
+
+app.engine('handlebars', exphbs({ helpers })); // Simplified Handlebars configuration
+
 app.set('view engine', 'handlebars');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);

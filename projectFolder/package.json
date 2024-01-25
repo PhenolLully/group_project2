@@ -2,9 +2,9 @@
   "name": "movie_app",
   "version": "1.0.0",
   "description": "An app to find movies that have diffrent generes",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",

@@ -43,7 +43,7 @@ router.get('/genre/:id', async (req, res) => {
               'Action',
               'Thriller',
               'Horror',
-              'Comdedy',
+              'Comedy',
               "Romance"
             ],
           },
