@@ -1,1 +1,22 @@
- <h1>Welcome to the Movie App</h1>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie App</title>
+</head>
+
+<body>
+  <h1>Welcome to the Movie App</h1>
+  <button id="actionBtn" onclick="filterMovies('action')">Action</button>
+  <button id="thrillerBtn" onclick="filterMovies('thriller')">Thriller</button>
+  <button id="horrorBtn" onclick="filterMovies('horror')">Horror</button>
+  <button id="comedyBtn" onclick="filterMovies('comedy')">Comedy</button>
+  <button id="romanceBtn" onclick="filterMovies('romance')">Romance</button>
+  <div id="movieContainer"></div>
+</body>
+
+</html>

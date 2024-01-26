@@ -5,26 +5,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie Generator</title>
-  <link rel="stylesheet" href="./public/css/style.css"/>
-  <link rel="stylesheet" href="./css/jass.css"/>
-
-  <script src="./main.handlebars"></script>
-
+  <link rel="stylesheet" href="/css/style.css"/>
 </head>
 
 <body>
-    <div id="app"></div>
+  <div id="app"></div>
+  
+  <script src="/js/script.js"></script>
 
+  <header>
+    <h1> MOVIE  GENERATOR</h1>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+      <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+      <a href="/login">Login</a>
+    {{/if}}
+  </nav>
+
+  <main>
+    <aside>
+
+      <h2></h2>
+
+    </aside>
     
-    <script src="app.js"></script>
+    <div class="movie">
+      {{{body}}}
+    </div>
 
+  </main>
 
-<header>
-    <h1> M O V I E  G E N E R A T O R</h1>
-</header>
-
-{{{body}}}
-
-
+  {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
+
 </html>
