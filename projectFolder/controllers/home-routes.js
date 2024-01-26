@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Genre, Movie } = require('../models');
+const withAuth = require('../utils/auth');
 
 // GET all genres for homepage
-router.get('/', async (req, res) => {
+router.get('/', withAuth , async (req, res) => {
   try {
     const dbGenreData = await Genre.findAll({
       // include: [
