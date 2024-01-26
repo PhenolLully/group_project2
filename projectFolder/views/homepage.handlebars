@@ -1,1 +1,41 @@
- <h1>Welcome to the Movie App</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie App</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Movie App</h1>
+  <button onclick="filterMovies('Action')">Action</button>
+  <button onclick="filterMovies('Thriller')">Thriller</button>
+  <button onclick="filterMovies('Horror')">Horror</button>
+  <button onclick="filterMovies('Comedy')">Comedy</button>
+  <button onclick="filterMovies('Romance')">Romance</button>
+  <script>
+    function filterMovies(genre) {
+      // Add your code to filter movies based on the selected genre
+      console.log(`Filtering movies by ${genre}`);
+    }
+  </script>
+</body>
+</html>
