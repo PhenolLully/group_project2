@@ -1,4 +1,4 @@
-const {Movie} = require('../models');
+const { Movie } = require('../models');
 const genreData = require("./genreData");
 
 const movies = [
@@ -30,8 +30,7 @@ const movies = [
 ];
 
 const seedMovies = async () => {
-    await Movie.bulkCreate(movies);
+  await Movie.bulkCreate(movies);
 };
 
 module.exports = seedMovies;
-

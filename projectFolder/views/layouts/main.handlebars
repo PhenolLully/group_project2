@@ -9,12 +9,8 @@
 </head>
 
 <body>
-  <div id="app"></div>
-  
-  <script src="/js/script.js"></script>
-
   <header>
-    <h1> MOVIE  GENERATOR</h1>
+    <h1>MOVIE GENERATOR</h1>
   </header>
 
   <nav>
@@ -28,16 +24,17 @@
 
   <main>
     <aside>
-
-      <h2></h2>
-
+      <!-- Add content inside the <h2> tag if needed -->
+      <h2>Some Heading</h2>
     </aside>
     
     <div class="movie">
       {{{body}}}
     </div>
-
   </main>
+
+  <!-- Move scripts to the end of the body -->
+  <script src="/js/script.js"></script>
 
   {{#if loggedIn}}
     <script src="/js/logout.js"></script>
@@ -45,3 +42,4 @@
 </body>
 
 </html>
+

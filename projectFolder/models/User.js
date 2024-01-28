@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcryptjs');
 const sequelize = require('../config/connection');
+const Movie = require('./Movie'); // Correct path and filename
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -32,13 +33,16 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [6],
+        len: {
+          args: [6],
+          msg: 'Password must be at least 6 characters long.',
+        },
       },
     },
     movie_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'movie',
+        model: 'Movie', // Ensure the model name is correct
         key: 'id',
       },
     },
@@ -57,5 +61,11 @@ User.init(
     modelName: 'user',
   }
 );
+
+// Define association
+User.belongsTo(Movie, {
+  foreignKey: 'movie_id',
+  as: 'movie',
+});
 
 module.exports = User;
