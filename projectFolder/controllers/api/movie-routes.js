@@ -1,59 +1,53 @@
 const router = require('express').Router();
-const {Movie, Genre}= require("../../models/Movie")
+const { Movie, Genre } = require("../../models/Movie");
 
-// router.get("/:genre",(req, res) =>{
-//     Movie.findAll({
-//         where:{
-//             genre: req.params.genre
-//         }
-//     })
-// });
+// GET movies by genre
+router.get('/movies/:genre', async (req, res, next) => {
+    try {
+        const genre = req.params.genre;
 
-router.get('/movies/:genre', async (req, res) => {
-    const genre = req.params.genre;
+        // Find the genre by name
+        const genreInstance = await Genre.findOne({ where: { genreName: genre } });
 
-   
-    Genre.findOne({ where: { genreName: genre } })
-        .then(genreInstance => {
-            if (!genreInstance) {
-                return res.status(404).json({ error: 'Genre not found' });
-            }
+        if (!genreInstance) {
+            return res.status(404).json({ error: 'Genre not found' });
+        }
 
-            
-            return Movie.findAll({
-                where: { genre_id: genreInstance.id },
-            });
-        })
-        .then(movies => {
-            res.json(movies);
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(500).json({ error: 'Internal Server Error' });
+        // Find movies by genre id
+        const movies = await Movie.findAll({
+            where: { genre_id: genreInstance.id },
         });
+
+        res.json(movies);
+    } catch (error) {
+        console.error(error);
+        next(error); // Pass the error to the next middleware
+    }
 });
 
-router.post('/movies', async (req, res) => {
-    const { movieName, genreName } = req.body;
+// POST a new movie
+router.post('/movies', async (req, res, next) => {
+    try {
+        const { movieName, genreName } = req.body;
 
-    // Find genre by name
-    Genre.findOne({ where: { genreName } })
-        .then(genreInstance => {
-            if (!genreInstance) {
-                return res.status(404).json({ error: 'Genre not found' });
-            }
-            return Movie.create({
-                movieName,
-                genre_id: genreInstance.id,
-            });
-        })
-        .then(newMovie => {
-            res.status(201).json(newMovie); 
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(500).json({ error: 'Internal Server Error' });
+        // Find the genre by name
+        const genreInstance = await Genre.findOne({ where: { genreName } });
+
+        if (!genreInstance) {
+            return res.status(404).json({ error: 'Genre not found' });
+        }
+
+        // Create a new movie
+        const newMovie = await Movie.create({
+            movieName,
+            genre_id: genreInstance.id,
         });
+
+        res.status(201).json(newMovie);
+    } catch (error) {
+        console.error(error);
+        next(error); // Pass the error to the next middleware
+    }
 });
 
 module.exports = router;
