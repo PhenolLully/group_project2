@@ -2,7 +2,7 @@ const logout = async () => {
   try {
     const response = await fetch('/api/users/logout', {
       method: 'POST',
-      credentials: 'include',  // Include credentials for cross-origin requests if necessary
+      credentials: 'include',  
       headers: {
         'Content-Type': 'application/json',
       },

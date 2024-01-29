@@ -8,7 +8,7 @@ const genreData = [
 {genre: "Romance", id: 5 },
 
 ];
-// just have the id
+
 
 const seedGenre = () => Genre.bulkCreate(genreData);
 

@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
     function filterMovies(genre) {
       console.log(`Filtering movies by ${genre}`);
-      // Your movie filtering logic goes here
-      // You can use the movieContainer to display the filtered movies
     }
   });
   

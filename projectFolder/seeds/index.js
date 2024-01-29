@@ -4,24 +4,15 @@ const seedGenre = require('./genreData');
 
 const seedAll = async () => {
   try {
-    console.log('Syncing Sequelize models with the database...');
-    await sequelize.sync({ force: false });
-    console.log('Sync successful.');
-
-    console.log('Seeding genres...');
-    // await seedGenre(); // Seed genres first
-    console.log('Genre seeding complete.');
-
-    console.log('Seeding movies...');
+    await sequelize.sync({ force: true });
+    await seedGenre(); 
     await seedMovies();
-    console.log('Movie seeding complete.');
-
-    console.log('Seed process completed successfully.');
     process.exit(0);
   } catch (error) {
-    console.error('Error during seeding:', error);
+    console.error('Error syncing and seeding the database:', error);
     process.exit(1);
   }
 };
 
 seedAll();
+

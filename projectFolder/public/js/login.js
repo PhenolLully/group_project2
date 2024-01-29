@@ -1,5 +1,3 @@
-// login.js
-
 const login = async () => {
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
@@ -66,6 +64,5 @@ const signup = async () => {
   }
 };
 
-// Event listener for the login button
 document.querySelector('.login-form').addEventListener('submit', login);
 document.querySelector('.signup-form').addEventListener('submit', signup);
