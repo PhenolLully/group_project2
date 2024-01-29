@@ -47,6 +47,23 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
-a {
 
+.home{
+  background-color: maroon;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.home:visited {
+ color: white;
+
+}
+
+.home:hover {
+  background-color: #2C3E50;
 }
