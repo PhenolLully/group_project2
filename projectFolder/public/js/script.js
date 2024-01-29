@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (loginBtn) {
       loginBtn.addEventListener('click', () => {
           // Replace '/path/to/homepage.handlebar' with the actual path
-          window.location.href = '/views/layouts/main.handlebars';
+          window.location.href = '/';
       });
   } else {
       console.error('Element with ID "loginBtn" not found.');

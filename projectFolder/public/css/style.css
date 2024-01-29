@@ -8,10 +8,14 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-image: url(../images/moviebackground.avif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
 }
 h1 {
-  color: #333;
   margin-bottom: 20px;
+  color: white;
 }
 button {
   background-color: #3498DB;
