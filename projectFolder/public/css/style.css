@@ -18,7 +18,7 @@ h1 {
   color: white;
 }
 button {
-  background-color: #3498DB;
+  background-color: maroon;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -46,4 +46,7 @@ button {
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
+}
+a {
+
 }
