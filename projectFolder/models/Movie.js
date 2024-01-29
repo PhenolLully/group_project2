@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Genre = require('./Genre');
 
 class Movie extends Model {}
 
@@ -11,11 +12,17 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
+    movieName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // Add other attributes as needed
+    genre_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'genre',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
@@ -24,6 +31,7 @@ Movie.init(
     underscored: true,
     modelName: 'movie',
   }
+
 );
 
 module.exports = Movie;

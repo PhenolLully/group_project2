@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const Movie = require('./Movie');
-const User = require('./User');
+const Movie = require("./Movie");
+const User = require("./User");
 
 class Genre extends Model {}
 
@@ -19,22 +19,12 @@ Genre.init(
     },
   },
   {
-    sequelize, // Pass the Sequelize instance here
+    sequelize, 
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'genre',
   }
 );
-
-// Define associations
-Genre.hasMany(Movie, {
-  foreignKey: 'genre_id',
-  onDelete: 'CASCADE',
-});
-
-Movie.belongsTo(Genre, {
-  foreignKey: 'genre_id',
-});
 
 module.exports = Genre;
