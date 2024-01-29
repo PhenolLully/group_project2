@@ -49,7 +49,7 @@ router.get('/genre/:id', async (req, res) => {
 });
 
 // GET one movie
-router.get('/genre', withAuth, async (req, res) => {
+router.get('/movie', withAuth, async (req, res) => {
   try {
     // const dbMovieData = await Movie.findByPk(req.params.id);
 
