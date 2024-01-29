@@ -28,7 +28,7 @@ router.get('/genre/:id', async (req, res) => {
       include: [
         {
           model: Movie,
-          attributes: ['id', 'title', 'release_date', 'genre_id'], // Include only necessary attributes
+          attributes: ['title',] // Include only necessary attributes
         },
       ],
     });
@@ -39,7 +39,9 @@ router.get('/genre/:id', async (req, res) => {
     }
 
     const genre = dbGenreData.get({ plain: true });
-    res.render('genre', { genre, loggedIn: req.session.loggedIn });
+    res.render('genre', { ...genre, 
+    loggedIn: req.session.loggedIn 
+  });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
@@ -47,17 +49,25 @@ router.get('/genre/:id', async (req, res) => {
 });
 
 // GET one movie
-router.get('/movie/:id', async (req, res) => {
+router.get('/genre', withAuth, async (req, res) => {
   try {
-    const dbMovieData = await Movie.findByPk(req.params.id);
+    // const dbMovieData = await Movie.findByPk(req.params.id);
 
-    if (!dbMovieData) {
-      res.status(404).render('404'); // Movie not found
-      return;
-    }
+    // if (!dbMovieData) {
+    //   res.status(404).render('404'); // Movie not found
+    //   return;
+    // }
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Genre }],
+    });
 
-    const movie = dbMovieData.get({ plain: true });
-    res.render('movie', { movie, loggedIn: req.session.loggedIn });
+    const movie = userData.get({ plain: true });
+
+    res.render('genre', 
+    { ...movie, 
+      loggedIn: req.session.loggedIn 
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);

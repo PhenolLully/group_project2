@@ -5,11 +5,11 @@ const seedGenre = require('./genreData');
 const seedAll = async () => {
   try {
     console.log('Syncing Sequelize models with the database...');
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: false });
     console.log('Sync successful.');
 
     console.log('Seeding genres...');
-    await seedGenre(); // Seed genres first
+    // await seedGenre(); // Seed genres first
     console.log('Genre seeding complete.');
 
     console.log('Seeding movies...');
