@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
               // Assuming the image name matches the movie title with a common extension, e.g., .jpg
               img.src = `${basePath}${movie.replace(/[^a-zA-Z]/g, "").toLowerCase()}.jpg`;
               img.alt = movie;
-              img.style.width = '100px'; // Example size, adjust as necessary
+              img.style.width = '125px'; // Example size, adjust as necessary
               movieContainer.appendChild(img);
           });
       }
@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Sample movies object (unchanged)
   const movies = {
-      'Action': ['The Matrix', 'The Dark Knight', 'John Wick', "Spider-Man No Way Home", "Scarface"],
-      'Thriller': ['Lights Out', 'The Girl On The Train', 'Shutter Island', "The Silence of The Lambs", "Seven"],
-      'Horror': ['The Exorcist', 'The Conjuring', 'A Quiet Place', "The Blair Witch Project", "Bride of Chucky"],
+      'Action': ['The Matrix', 'First Blood', 'John Wick', "Spider-Man No Way Home", "Scarface"],
+      'Thriller': ['Lights Out', 'Warm Bodies', 'Shutter Island', "The Silence of The Lambs", "Seven"],
+      'Horror': ['The Exorcist', 'The Conjuring', 'A Quiet Place', "Alien", "X"],
       'Comedy': ['21 Jump Street', 'Scary Movie', 'Happy Gilmore', "Friday", "Rush Hour"],
-      'Romance': ['The Notebook', 'Romeo & Juliet', 'Love Jones', "Pretty Woman", "500 Days of Summer"],
+      'Romance': ['The Notebook', 'Romeo & Juliet', 'Love Jones', "Pretty Woman", "Titanic"],
   };
 
   // Attach event listeners to buttons
