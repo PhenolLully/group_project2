@@ -63,5 +63,6 @@ most devices with a smooth and polished user interface.
 
 
 ## Deployment
+https://movie-generator-9142e2c699eb.herokuapp.com/
 
-![Screenshot of Movie Generator]
+<img src="movie-app.png">
