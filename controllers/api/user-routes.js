@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// CREATE new user
+
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -10,11 +10,11 @@ router.post('/', async (req, res) => {
       password: req.body.password,
     });
 
-    // Save the session and set loggedIn to true
+    
     req.session.save(() => {
       req.session.loggedIn = true;
 
-      res.status(201).json(dbUserData); // Use 201 for resource creation
+      res.status(201).json(dbUserData);
     });
   } catch (err) {
     console.error(err);
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Login
+
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Incorrect email or password. Please try again!' });
     }
 
-    // Save the session and set loggedIn to true
+    
     req.session.save(() => {
       req.session.loggedIn = true;
 
@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout
+
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {

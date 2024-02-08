@@ -1,14 +1,6 @@
 const router = require('express').Router();
 const {Movie, Genre}= require("../../models/Movie")
 
-// router.get("/:genre",(req, res) =>{
-//     Movie.findAll({
-//         where:{
-//             genre: req.params.genre
-//         }
-//     })
-// });
-
 router.get('/movies/:genre', async (req, res) => {
     const genre = req.params.genre;
 
@@ -36,7 +28,7 @@ router.get('/movies/:genre', async (req, res) => {
 router.post('/movies', async (req, res) => {
     const { movieName, genreName } = req.body;
 
-    // Find genre by name
+  
     Genre.findOne({ where: { genreName } })
         .then(genreInstance => {
             if (!genreInstance) {

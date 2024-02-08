@@ -6,7 +6,7 @@ const userRoutes = require('./user-routes');
 router.use('/users', userRoutes);
 router.use('/movies', movieRoutes);
 
-// Add a generic error handler
+
 router.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
