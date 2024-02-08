@@ -3,7 +3,7 @@ const genreData = require("./genreData");
 
 const movies = [
   { movieName: "The Matrix", genre_id: 1, filename: "the_matrix.jpg" },
-  { movieName: "First Blood", genre_id: 1, filename: "FirstBlood.jpg" },
+  { movieName: "Reacher", genre_id: 1, filename: "Reacher.jpg" },
   { movieName: "John Wick", genre_id: 1, filename: "john-wick.jpg" },
   { movieName: "Spider-Man: No Way Home", genre_id: 1, filename: "spiderman-no-way-home.jpg" },
   { movieName: "Scarface", genre_id: 1, filename: "scarface.jpg" },
