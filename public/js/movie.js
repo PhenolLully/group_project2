@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('DOMContentLoaded', () => {
     console.log('Script loaded');
-    // Function to fetch movies from your local API
+    
     async function fetchMovies() {
       try {
         const response = await fetch('/');
@@ -30,19 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return [];
       }
     }
-    // Function to display movies fetched from your local API
+    
     async function displayLocalApiMovies() {
       const movies = await fetchMovies();
       console.log('Movies from local API:', movies);
-      // Add logic to display movies on the webpage
+      
     }
-    // Event listener for the button that triggers fetching and displaying movies
+    
     const fetchMoviesBtn = document.getElementById('fetchMoviesBtn');
     if (fetchMoviesBtn) {
       fetchMoviesBtn.addEventListener('click', displayLocalApiMovies);
     } else {
       console.error('Element with ID "fetchMoviesBtn" not found.');
     }
-    // Additional code or configurations if needed
+    
   });
   

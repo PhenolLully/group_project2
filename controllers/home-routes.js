@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Genre, Movie } = require('../models');
 const withAuth = require('../utils/auth');
 
-// GET all genres for homepage
+
 router.get('/', withAuth, async (req, res) => {
   try {
     const dbGenreData = await Genre.findAll();
@@ -21,20 +21,20 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// GET one genre
+
 router.get('/genre/:id', async (req, res) => {
   try {
     const dbGenreData = await Genre.findByPk(req.params.id, {
       include: [
         {
           model: Movie,
-          attributes: ['title',] // Include only necessary attributes
+          attributes: ['title',] 
         },
       ],
     });
 
     if (!dbGenreData) {
-      res.status(404).render('404'); // Genre not found
+      res.status(404).render('404'); 
       return;
     }
 
@@ -48,15 +48,10 @@ router.get('/genre/:id', async (req, res) => {
   }
 });
 
-// GET one movie
+
 router.get('/movie', withAuth, async (req, res) => {
   try {
-    // const dbMovieData = await Movie.findByPk(req.params.id);
-
-    // if (!dbMovieData) {
-    //   res.status(404).render('404'); // Movie not found
-    //   return;
-    // }
+   
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Genre }],
@@ -74,7 +69,7 @@ router.get('/movie', withAuth, async (req, res) => {
   }
 });
 
-// Login route
+
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
