@@ -6,14 +6,13 @@
 * User Story
 * Acceptance Criteria
 * Direction of Future Development
-* APIs Used
 * Deployment
 
 
 ## Concept
 
 ```md
-Five movies are generated based on user-inputted 
+Three movies are generated based on user-inputted 
 search criteria at the click of a button. 
 Movies are pulled from the API that the owner created through Sequelized 
 and displayed below the application. 
@@ -24,7 +23,7 @@ and displayed below the application.
 
 ```md
 AS someone who watches movies a lot and likes to find good movies every now and then,
-I WANT to choose from five diffent genres of movies and generate five differnt movies related to that genre at the click of a button,
+I WANT to choose from five diffent genres of movies and generate three differnt movies related to that genre at the click of a button,
 SO that I can enjoy a movie whenever I want to watch one,
 ```
 
@@ -34,9 +33,9 @@ SO that I can enjoy a movie whenever I want to watch one,
 ```md
 When a user inserts there log in information,
 They are presented with 5 categories.
-Each button generates five movies based on their respective categories (Action, Thriller, Horror, Comedy & Romance movies)
+Each button generates three movies based on their respective categories (Action, Thriller, Horror, Comedy & Romance movies)
 When a user presses one of the five genre button,
-Five movies will be pulled from the movie API databases, and generated under
+Three movies will be pulled from the movie API databases, and generated under
 the buttons.
 The users login information will be(saved to the local storage)
 ```
@@ -53,14 +52,6 @@ and when users are looking to raise their spirits with a good or great movie.
  We will work to increase our application to that can be accessed across 
 most devices with a smooth and polished user interface.
 ```
-
-
-## APIs Used
-
-```md
-
-```
-
 
 ## Deployment
 https://movie-generator-9142e2c699eb.herokuapp.com/
