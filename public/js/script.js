@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
   const movies = {
-      'Action': ['The Matrix', 'First Blood', 'John Wick', "Spider-Man No Way Home", "Scarface"],
+      'Action': ['The Matrix', 'Reacher', 'John Wick', "Spider-Man No Way Home", "Scarface"],
       'Thriller': ['Lights Out', 'Warm Bodies', 'Shutter Island', "The Silence of The Lambs", "Seven"],
       'Horror': ['The Exorcist', 'The Conjuring', 'A Quiet Place', "Alien", "X"],
       'Comedy': ['21 Jump Street', 'Scary Movie', 'Happy Gilmore', "Friday", "Rush Hour"],
