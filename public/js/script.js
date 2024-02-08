@@ -44,11 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
   const movies = {
-      'Action': ['The Matrix', 'DeepFear', 'John Wick', "Spider-Man No Way Home", "Scarface"],
-      'Thriller': ['Lights Out', 'Warm Bodies', 'Shutter Island', "The Silence of The Lambs", "Seven"],
-      'Horror': ['The Exorcist', 'The Conjuring', 'A Quiet Place', "Alien", "X"],
-      'Comedy': ['21 Jump Street', 'Scary Movie', 'Happy Gilmore', "Friday", "Rush Hour"],
-      'Romance': ['The Notebook', 'Romeo & Juliet', 'Love Jones', "Pretty Woman", "Titanic"],
+      'Action': ['The Matrix', "Spider-Man No Way Home", "Scarface"],
+      'Thriller': [ 'Shutter Island', "The Silence of The Lambs", "Seven"],
+      'Horror': ['The Exorcist', 'The Conjuring', 'A Quiet Place'],
+      'Comedy': ['21 Jump Street', "Friday", "Rush Hour"],
+      'Romance': [ 'Romeo & Juliet', 'Love Jones', "Pretty Woman",],
   };
 
   
